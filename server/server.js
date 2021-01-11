@@ -37,20 +37,6 @@ db.connect( (error) => {
 })
 
 app.get("/", (req, res) => {
-    // console.log(req.session.user);
-    // if(!req.session.user){
-    //     res.json({ status : 404, message: "You have to log in first"});
-    // }
-    // else{
-    //     db.query('SELECT * FROM user', function(error, user) {
-    //         if(error){ 
-    //             res.send(error);
-    //         }
-    //         if (user.length > 0) {
-    //             res.json(user);
-    //         }         
-    //     });
-    // }
     db.query('SELECT * FROM user', function(error, user) {
         if(error){ 
             res.send(error);
@@ -65,6 +51,8 @@ app.get("/", (req, res) => {
 app.post("/user/login", (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
+    console.log(username);
+    console.log(password);
     if (username && password) {
         db.query('SELECT * FROM user WHERE username = ?', [username], function(error, user) {
             if(error){ 
@@ -146,6 +134,6 @@ app.post('/user/checkToken', (req, res) => {
 })
 
 //----------------------------- Port -----------------------------
-app.listen(3000, () => {
-    console.log("App running on localhost:3000");
+app.listen(3001, () => {
+    console.log("App running on localhost:3001");
 })
