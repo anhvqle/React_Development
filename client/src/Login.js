@@ -33,6 +33,25 @@ function Login() {
         console.log(error);
         })
     };
+
+    const logout = () => {
+        console.log("log out pressed");
+        Axios.get("http://localhost:3001/user/logout").then( (response) => {
+            console.log(response.data);
+            if(parseInt(response.data.status) <= 299){
+                localStorage.removeItem('token');
+                isLogin(false);
+                msg = "Logout Succesfully";
+            }
+            else{
+                msg = "Logout Unsuccesfully";
+            }
+            setLoginStatus(response.data.message);
+            }).catch((error) => {
+            console.log(error);
+        })
+    };
+
     return (
         <div className="jumbotron">
             <p>
@@ -51,7 +70,7 @@ function Login() {
             </p>
             <p><button className="btn btn-primary" type="submit" style={{display: isLoggedIn ? "none" : "block"}} name="login" id="login_btn" onClick = {login}>Log In</button></p>
             <p>{loginStatus}</p>
-            <p><button className="btn btn-primary" type="submit" style={{display: isLoggedIn ? "block" : "none"}} name="logout" id="logout_btn">Log Out</button></p>
+            <p><button className="btn btn-primary" type="submit" style={{display: isLoggedIn ? "block" : "none"}} name="logout" id="logout_btn" onClick = {logout}>Log Out</button></p>
         </div>
     );
 }
