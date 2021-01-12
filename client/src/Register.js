@@ -12,7 +12,7 @@ function Register() {
     let [registerStatus, setRegisterStatus] = useState("");
 
     const register = () => {
-        console.log("log in pressed");
+        // console.log("log in pressed");
         Axios.post("http://localhost:3001/user/register", {
             username: username,
             password: password,

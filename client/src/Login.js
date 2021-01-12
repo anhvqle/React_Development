@@ -6,7 +6,7 @@ let msg = "";
 
 function Login() {
     document.addEventListener("DOMContentLoaded", function(event) {
-        console.log("Refresh button pressed");
+        // console.log("Refresh button pressed");
         Axios.post("http://localhost:3001/user/checkToken", {
             token: localStorage.getItem('token')
         }).then( (response) => {
@@ -32,11 +32,12 @@ function Login() {
     const [loginPassword, setLoginPassword] = useState("");
 
     const login = () => {
-        console.log("log in pressed");
+        // console.log("log in pressed");
         Axios.post("http://localhost:3001/user/login", {
             username: loginUsername,
             password: loginPassword
         }).then( (response) => {
+            console.log(response.data);
             if(parseInt(response.data.status) <= 299){
                 token = response.data.token;
                 isLogin(true);
