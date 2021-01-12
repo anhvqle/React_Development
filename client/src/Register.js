@@ -25,7 +25,7 @@ function Register() {
         msg = "Register Succesfully";
       }
       else{
-        msg = "Register Unsuccesfully";
+        msg = "Register Unsuccesfully - " + response.data.message;
       }
       setRegisterStatus(msg);
     }).catch((error) => {
