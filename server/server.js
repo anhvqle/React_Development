@@ -130,7 +130,6 @@ app.post('/user/checkToken', (req, res) => {
     if(token == clientToken && token != null) {
         return res.json({ status : 200, token: token, message: "Stay Logged In" });
     }
-    return res.json({ status : 404, token: null, message: "Logged Out" });
 })
 
 //----------------------------- Port -----------------------------
