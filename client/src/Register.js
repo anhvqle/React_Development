@@ -1,6 +1,5 @@
 import './App.css';
 import Axios from 'axios';
-import App from './App';
 import { useState } from 'react';
 let msg = "";
 

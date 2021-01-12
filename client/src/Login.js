@@ -1,8 +1,6 @@
 import './App.css';
 import Axios from 'axios';
-import Register from './Register';
 import { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 let token = undefined;
 let msg = "";
 
